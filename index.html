@@ -3,31 +3,55 @@
   <meta charset="UTF-8">
   <title>Dom Challenge</title>
   <style>
+   
+    /* .container{
+      align-items: center;
+      text-align: center;
+    } */
+    .li1{
+      color: crimson;
+      font-size: 2rem;
+
+    }
     #counter {
-      background-color: black;
-      color: white;
+    
+      background-color: rgb(171, 247, 6);
+      color: rgb(145, 7, 14);
       display: table;
       padding: 10px;
+    }
+    button{
+      /* color: white; */
+      padding: 5px;
+      margin-top: 5px;
+      cursor: pointer;
+      /* background-color: darkolivegreen; */
     }
   </style>
 </head>
 <body>
-  <h1>
-    Welcome to the DOM Challenge
-  </h1>
-  <h1 id='counter'>
-    0
-  </h1>
-  <button id='minus' > ➖ </button>
-  <button id='plus' > ➕ </button>
-  <button id='heart' > ❤️ </button>
-  <button id='pause' > pause </button>
+  <div class="container" style="width: 100%;">
+    
+    <h1>
+      Welcome to the DOM Challenge
+    </h1>
+    <h1 id='counter'>
+      0
+    </h1>
+    <button id='minus' > ➖ </button>
+    <button id='plus' > ➕ </button>
+    <button id='heart' > ❤️ </button>
+    <button id='pause' > pause </button>
 
-  <ul class='likes'></ul>
+  <ul class='likes' style="list-style-type: none;">
+    <!-- likes time goes here -->
+  </ul>
 
   <div>
     <h3>Comments</h3>
-    <div id='list' class='comments'></div>
+    <div id='list' class='comments'>
+      
+    </div>
 
     <h3>Leave a comment</h3>
 
@@ -39,7 +63,8 @@
 
   </div>
 
-  <script src="js/index.min.js"></script>
+   <!--script src="js/index.min.js"></script-->
   <script src="js/challenge.js"></script>
+</div>
 </body>
 </html>
