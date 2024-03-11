@@ -1,68 +1,59 @@
-// Run timer when DOM Loads
 document.addEventListener("DOMContentLoaded", () => {
-  runTimer();
+  runCounter();
 });
-// Define Counter...
 const counter = document.getElementById("counter");
 // Increase the number
-
 function incrementCounter() {
   counter.textContent++;
 }
 
-//  Define IntervalId variable
-let interval;
-
-// Set Interval funtion
-function runTimer() {
-  interval = setInterval(incrementCounter, 1000);
+let intervalID;
+// Set Interval
+function runCounter() {
+  intervalID = setInterval(incrementCounter, 1000);
 }
-
-// countup timer Eventlistener
+// countup timer
 const increase = document.getElementById("plus");
-increase.addEventListener("click", () => {
-  counter.textContent++;
-});
+increase.addEventListener("click", () => counter.textContent++);
 
-// Countdown timer EvenListener
+// Countdown timer
 const decrease = document.getElementById("minus");
-decrease.addEventListener("click", () => {
-  counter.textContent--;
-});
+decrease.addEventListener("click", () => counter.textContent--);
 
 //Pause the counter
 const pauseBtn = document.getElementById("pause");
 pauseBtn.addEventListener("click", () => {
-  if (pauseBtn.textContent === "pause") {
-    clearInterval(interval);
-    pauseBtn.textContent = "resume";
+  if (pauseBtn.textContent === " pause ") {
+    clearInterval(intervalID);
+    pauseBtn.textContent = " resume ";
     increase.disabled = true;
     decrease.disabled = true;
     heart.disabled = true;
   } else {
-    runTimer();
-    pauseBtn.textContent = "pause";
+    pauseBtn.textContent = " pause ";
+    runCounter();
     increase.disabled = false;
     decrease.disabled = false;
     heart.disabled = false;
   }
 });
-// Render counter-time
-const hrtBtn = document.getElementById("heart");
-hrtBtn.addEventListener("click", () => {
-  let li = document.createElement("li");
-  li.textContent = counter.textContent;
 
-  document.querySelector(".likes").appendChild(li);
+// Render counter-tme
+const heart = document.getElementById("heart");
+heart.addEventListener("click", () => {
+  let ul = document.querySelector(".likes");
+  let li = document.createElement("li");
+  li.className = "li1";
+  li.textContent = counter.textContent;
+  ul.appendChild(li);
 });
 
 // Form submit comment-input
-
-let form = document.querySelector("form");
+const form = document.getElementById("comment-form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   let comment = document.getElementById("comment-input").value;
-  let list = document.getElementById("list");
+  let list = document.querySelector("#list");
   let li = document.createElement("li");
   li.textContent = comment;
   list.appendChild(li);
